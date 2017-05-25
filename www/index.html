@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html ng-app="app">
+
+  <head>
+        
+   
+        <title>Meteorología marina para España</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="js/libs/twitter-bootstrap/css/bootstrap.css" />
+        <link rel="stylesheet" type="text/css" href="css/index.css" />
+        <link rel="stylesheet" type="text/css" href="css/toaster.css" />
+        <script type="text/javascript" src="js/libs/angular.js/angular.min.js"></script>
+        <script type="text/javascript" src="js/libs/angular-ui-bootstrap/ui-bootstrap-tpls-1.3.3.min.js"></script>
+        
+        <!LIBRERIAS>
+        <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.19/angular.js"></script>
+        
+        <!ARCHIVOS.JS>
+        <script src="js/angular/app.js"></script>
+        <script type="text/javascript" src="js/angular/aemet.js"></script>
+         <script type="text/javascript" src="js/angular/toaster.js"></script>
+        
+        <!LIBRERIAS-TOAST>
+        <script type="text/javascript" src="js/libs/angular.js/angular-animate.min.js"></script>
+        <script src="http://code.angularjs.org/1.3.3/angular-animate.min.js" ></script>
+        
+        <!LIBRERIAS-SPINNER>
+
+        
+    
+  </head>
+
+  <body ng-controller="EntradaController as entrada" style="background-color: lightskyblue">
+      <!ICONO>
+      <div class="row">
+          <div class="container ">
+              <img src="img/Weather-icon.png" class="img-responsive center-block" />
+          </div>
+      </div>
+  
+      <!Título>
+      <div class="row text-center" id="tituloprincipal" >
+          <h1><strong>Coast Weather</strong></h1> 
+      </div>
+      
+      <!COMBO-BOX>
+      <div class="col-md-6 col-md-offset-3" >
+                        <select  id="zona" ng-model="zonaSel" class="form-control" style="text-align: center">
+                            <option style="text-align: center" value="">Selecciona provincia</option>
+                            <option ng-repeat="zonaNavegacion in entrada.zonasNavegacion" value="{{zonaNavegacion.nombre}}">{{zonaNavegacion.nombre}}</option>
+                        </select>
+      </div>     
+     <!--                   
+          <div class="col-md-2 col-md-offset-5 " style="margin-top: 10px" >
+               
+              <button style="background-color: white;border-right-style: solid" ><strong>Ver predicción</strong></button>
+          </div>
+      </div>
+    -->
+    <!-- 
+      <div class="row" style="margin-top: 100px">
+          <div class="col-md-6 col-md-offset-3">
+              <img src="img/gps1.png" class="img-responsive center-block" />
+              
+          </div>
+      -->
+     <div class="row" style="margin-top:50px">
+         <a class="btn btn-success col-sm-2 col-sm-offset-5 col-xs-6 col-xs-offset-3" ><strong>Ver predicción</strong></a>
+         <i class="fa fa-spinner fa-spin" style="font-size:100px"></i>
+     </div>  
+     
+      
+      <div class="row" style="margin-top: 20px" ng-controller="Toast1Controller">
+          <div class="col-md-6 col-md-offset-3">
+              <img ng-click="doGreeting()" src="img/gps1.png" class="img-responsive center-block">
+               
+              </img>
+                     
+     </div>
+       
+          
+       
+          <div class="row" style="margin-top:30px">
+           <a class="progress-bar"></a>
+           <a class="text-center col-sm-2 col-sm-offset-5 col-xs-6 col-xs-offset-3" ><strong><div style="color: white"class="ng-hide" ng-show="showMessage">{{msg}}</div>
+           <span ng-show="showMessage===true"class="glyphicon glyphicon-refresh spinning"></span>        
+</strong></a>
+     </div>      
+        
+    
+       
+    
+  </body>
+
+</html>
